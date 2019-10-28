@@ -26,10 +26,12 @@ function render (myLibrary){
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
     cell1.innerHTML = myLibrary[i].title;
     cell2.innerHTML = myLibrary[i].author;
     cell3.innerHTML = myLibrary[i].pageCount;
     cell4.innerHTML = myLibrary[i].readYet;
+    cell5.innerHTML = '<button class="btn btn-danger" id="'+i+'">Delete</button>'
 
   }
   document.write('</table>')
