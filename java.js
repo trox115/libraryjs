@@ -49,7 +49,11 @@ document.getElementById("addBook").addEventListener("click", function(){
 });
 
 document.getElementById("insertbook").addEventListener("click", function(){
-  console.log("Hello");
+  title = document.getElementById('title').value
+  let book = new Book(title, "author", 123, false);
+  myLibrary.push(book);
+  console.log(myLibrary);
+  render(myLibrary);
 });
 
 document.getElementById("closeform").addEventListener("click", function(){
