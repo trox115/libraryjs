@@ -63,20 +63,19 @@ document.getElementById("closeform").addEventListener("click", function(){
   document.forms.namedItem("bookform").style.display = "none";
 });
 
-function update (array){
-  $("#booklist").append(
-      "<tr>" +
-        "<td>"+array.title+"</td>" +
-        "<td>"+array.author+"</td>" +
-        "<td>"+array.pageCount+"</td>" +
-        "<td>"+array.readYet+"</td>" +
-      "</tr>"
-  );
-
-  }
+// function update (array){
+//   $("#booklist").append(
+//       "<tr>" +
+//         "<td>"+array.title+"</td>" +
+//         "<td>"+array.author+"</td>" +
+//         "<td>"+array.pageCount+"</td>" +
+//         "<td>"+array.readYet+"</td>" +
+//       "</tr>"
+//   );
+//
+//   }
 
 function delete_row(id){
   myLibrary.splice(id,1);
-  console.log(myLibrary);
   delete_table();
 }
