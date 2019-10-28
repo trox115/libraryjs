@@ -51,3 +51,7 @@ document.getElementById("addBook").addEventListener("click", function(){
 document.getElementById("insertbook").addEventListener("click", function(){
   console.log("Hello");
 });
+
+document.getElementById("closeform").addEventListener("click", function(){
+  document.forms.namedItem("bookform").style.display = "none";
+});
