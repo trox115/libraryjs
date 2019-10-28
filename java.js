@@ -50,12 +50,28 @@ document.getElementById("addBook").addEventListener("click", function(){
 
 document.getElementById("insertbook").addEventListener("click", function(){
   title = document.getElementById('title').value
-  let book = new Book(title, "author", 123, false);
+  author = document.getElementById('author').value
+  pages = parseInt(document.getElementById('pages').value)
+  read = document.getElementById('read').value
+  let book = new Book(title, author, pages, read);
   myLibrary.push(book);
-  console.log(myLibrary);
-  render(myLibrary);
+  update(book);
+  document.forms.namedItem("bookform").style.display = "none";
+
 });
 
 document.getElementById("closeform").addEventListener("click", function(){
   document.forms.namedItem("bookform").style.display = "none";
 });
+
+function update (array){
+  $("#booklist").append(
+      "<tr>" +
+        "<td>"+array.title+"</td>" +
+        "<td>"+array.author+"</td>" +
+        "<td>"+array.pageCount+"</td>" +
+        "<td>"+convertToWords(array.readYet)+"</td>" +
+      "</tr>"
+  );
+
+  }
