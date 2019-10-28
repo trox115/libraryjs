@@ -11,8 +11,8 @@ class Book {
 
 // Core library data object
 let myLibrary = [
-    { title: 'The Hobbit', author: "J.R.R. Tolkien", pageCount: 264, readYet: false },
-    { title: 'The Fellowship of the Ring', author: "J.R.R. Tolkien", pageCount: 264, readYet: true },
+    { title: 'The Hobbit', author: "J.R.R. Tolkien", pageCount: 264, readYet: "Read" },
+    { title: 'The Fellowship of the Ring', author: "J.R.R. Tolkien", pageCount: 264, readYet: "Not Read" },
 
 ];
 
@@ -29,17 +29,10 @@ function render (myLibrary){
     cell1.innerHTML = myLibrary[i].title;
     cell2.innerHTML = myLibrary[i].author;
     cell3.innerHTML = myLibrary[i].pageCount;
-    cell4.innerHTML = convertToWords(myLibrary[i].readYet);
+    cell4.innerHTML = myLibrary[i].readYet;
 
   }
   document.write('</table>')
-}
-
-function convertToWords(boolean){
-  if (boolean == false){
-    return 'Not read';
-  }
-  return 'Read'
 }
 
 render(myLibrary);
@@ -70,7 +63,7 @@ function update (array){
         "<td>"+array.title+"</td>" +
         "<td>"+array.author+"</td>" +
         "<td>"+array.pageCount+"</td>" +
-        "<td>"+convertToWords(array.readYet)+"</td>" +
+        "<td>"+array.readYet+"</td>" +
       "</tr>"
   );
 
