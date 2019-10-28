@@ -33,7 +33,7 @@ function render (myLibrary){
     cell1.innerHTML = myLibrary[i].title;
     cell2.innerHTML = myLibrary[i].author;
     cell3.innerHTML = myLibrary[i].pageCount;
-    cell4.innerHTML = myLibrary[i].readYet;
+    cell4.innerHTML ='<button class="btn btn-success" id="'+i+'" onclick="update_row('+i+')">'+ myLibrary[i].readYet+'</button>';
     cell5.innerHTML = '<button class="btn btn-danger delete" id="'+i+'" onclick="delete_row('+i+')">Delete</button>';
 
   }
@@ -77,5 +77,14 @@ document.getElementById("closeform").addEventListener("click", function(){
 
 function delete_row(id){
   myLibrary.splice(id,1);
+  delete_table();
+}
+
+function update_row(id){
+  if (myLibrary[id].readYet ==='Read'){
+      myLibrary[id].readYet ='Not Read'
+    }else{
+      myLibrary[id].readYet ='Read'
+    }
   delete_table();
 }
