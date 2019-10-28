@@ -15,7 +15,10 @@ let myLibrary = [
     { title: 'The Fellowship of the Ring', author: "J.R.R. Tolkien", pageCount: 264, readYet: "Not Read" },
 
 ];
-
+function delete_table(){
+  $("#booklist tr td").remove();
+  render(myLibrary);
+}
 
 function render (myLibrary){
   let table = document.getElementById("booklist")
@@ -31,10 +34,11 @@ function render (myLibrary){
     cell2.innerHTML = myLibrary[i].author;
     cell3.innerHTML = myLibrary[i].pageCount;
     cell4.innerHTML = myLibrary[i].readYet;
-    cell5.innerHTML = '<button class="btn btn-danger" id="'+i+'">Delete</button>'
+    cell5.innerHTML = '<button class="btn btn-danger delete" id="'+i+'" onclick="delete_row('+i+')">Delete</button>';
 
   }
-  document.write('</table>')
+
+
 }
 
 render(myLibrary);
@@ -50,7 +54,7 @@ document.getElementById("insertbook").addEventListener("click", function(){
   read = document.getElementById('read').value
   let book = new Book(title, author, pages, read);
   myLibrary.push(book);
-  update(book);
+  delete_table(myLibrary);
   document.forms.namedItem("bookform").style.display = "none";
 
 });
@@ -70,3 +74,9 @@ function update (array){
   );
 
   }
+
+function delete_row(id){
+  myLibrary.splice(id,1);
+  console.log(myLibrary);
+  delete_table();
+}
