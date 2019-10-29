@@ -1,10 +1,9 @@
-// Book class
 class Book {
   constructor(title, author, pageCount, readYet) {
-    this.title = title
-    this.author = author
-    this.pageCount = pageCount
-    this.readYet = readYet
+    this.title = title;
+    this.author = author;
+    this.pageCount = pageCount;
+    this.readYet = readYet;
   }
 }
 
