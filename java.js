@@ -1,24 +1,24 @@
 // Book class
 class Book {
   constructor(title, author, pageCount, readYet) {
-      this.title = title
-      this.author = author
-      this.pageCount = pageCount
-      this.readYet = readYet
+    this.title = title;
+    this.author = author;
+    this.pageCount = pageCount;
+    this.readYet = readYet;
   }
 }
 
 let myLibrary;
 
 // If local storage data
-if (localStorage.getItem('library')){
+if (localStorage.getItem('library')) {
   myLibrary = JSON.parse(localStorage.getItem('library'));
-}else{
+} else {
   // Core library data object
   myLibrary = [
-  new Book('The Hobbit', "J.R.R. Tolkien", 264, "Read"),
-  new Book('The Fellowship of the Ring', "J.R.R. Tolkien", 264, "Not Read" ),
-  new Book('Two Towers', "J.R.R. Tolkien", 264, "Not Read" )
+  new Book('The Hobbit', 'J.R.R. Tolkien', 264, 'Read'),
+  new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 264, 'Not Read' ),
+  new Book('Two Towers', 'J.R.R. Tolkien', 264, 'Not Read' )
 ];
 
 }
