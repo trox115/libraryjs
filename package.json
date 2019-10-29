@@ -1,0 +1,23 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "Library project from The Odin Project",
+  "main": "java.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.6.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trox115/libraryjs.git"
+  },
+  "author": "Carlos Del Real & António Fenandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trox115/libraryjs/issues"
+  },
+  "homepage": "https://github.com/trox115/libraryjs#readme"
+}
