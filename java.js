@@ -17,24 +17,24 @@ if (localStorage.getItem('library')) {
   myLibrary = [
     new Book('The Hobbit', 'J.R.R. Tolkien', 264, 'Read'),
     new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 264, 'Not Read'),
-    new Book('Two Towers', 'J.R.R. Tolkien', 264, 'Not Read')
+    new Book('Two Towers', 'J.R.R. Tolkien', 264, 'Not Read'),
   ];
 }
 
 
-function updateTable(){
+function updateTable() {
   document.querySelector('#booklist').remove();
   render(myLibrary);
 }
 
-function render (myLibrary){
+function render (myLibrary) {
   let tb = document.createElement('tbody');
   tb.id = 'booklist'
   const table = document.querySelector('table');
   table.append(tb);
 
 
-  for (let i = myLibrary.length-1; i >= 0; i--){
+  for (let i = myLibrary.length-1; i >= 0; i--) {
     const row = tb.insertRow(0);
     const cell1 = row.insertCell(0);
     const cell2 = row.insertCell(1);
@@ -56,11 +56,11 @@ function render (myLibrary){
 
 render(myLibrary);
 
-document.getElementById('addBook').addEventListener('click', function(){
+document.getElementById('addBook').addEventListener('click', function() {
   document.forms.namedItem('bookform').style.display = 'flex';
 });
 
-document.getElementById('insertbook').addEventListener('click', function(){
+document.getElementById('insertbook').addEventListener('click', function() {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const pages = parseInt(document.getElementById('pages').value);
@@ -72,11 +72,11 @@ document.getElementById('insertbook').addEventListener('click', function(){
 
 });
 
-document.getElementById('closeform').addEventListener('click', function(){
+document.getElementById('closeform').addEventListener('click', function() {
   document.forms.namedItem('bookform').style.display = 'none';
 });
 
-function addlisteners(){
+function addlisteners() {
   document.querySelectorAll('.read-btn').forEach((element) => {
     element.addEventListener('click', (event) => {
       const read_toggle = parseInt(event.srcElement.parentElement.parentElement.firstElementChild.innerHTML);
@@ -99,7 +99,7 @@ function deleteRow(id){
 }
 
 function updateRow(id){
-  if (myLibrary[id].readYet ==='Read'){
+  if (myLibrary[id].readYet ==='Read') {
     myLibrary[id].readYet ='Not Read'
   }else{
     myLibrary[id].readYet ='Read'
