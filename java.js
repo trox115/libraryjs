@@ -1,10 +1,10 @@
 // Book class
 class Book {
   constructor(title, author, pageCount, readYet) {
-      this.title = title
-      this.author = author
-      this.pageCount = pageCount
-      this.readYet = readYet
+    this.title = title
+    this.author = author
+    this.pageCount = pageCount
+    this.readYet = readYet
   }
 }
 
@@ -16,10 +16,10 @@ if (localStorage.getItem('library')){
 }else{
   // Core library data object
   myLibrary = [
-  new Book('The Hobbit', "J.R.R. Tolkien", 264, "Read"),
-  new Book('The Fellowship of the Ring', "J.R.R. Tolkien", 264, "Not Read" ),
-  new Book('Two Towers', "J.R.R. Tolkien", 264, "Not Read" )
-];
+    new Book('The Hobbit', "J.R.R. Tolkien", 264, "Read"),
+    new Book('The Fellowship of the Ring', "J.R.R. Tolkien", 264, "Not Read" ),
+    new Book('Two Towers', "J.R.R. Tolkien", 264, "Not Read" )
+  ];
 
 }
 
@@ -34,7 +34,7 @@ function render (myLibrary){
   tb.id = "booklist"
   let table = document.querySelector('table');
   table.append(tb);
-  
+
 
   for (let i = myLibrary.length-1 ; i >= 0; i-- ){
     let row = tb.insertRow(0);
@@ -85,7 +85,7 @@ function addlisteners(){
       update_row(read_toggle-1);
     });
   });
-  
+
   document.querySelectorAll('.delete-btn').forEach((element)=>{
     element.addEventListener("click", (event)=>{
       let read_toggle = parseInt(event.srcElement.parentElement.parentElement.firstElementChild.innerHTML);
@@ -102,14 +102,13 @@ function delete_row(id){
 
 function update_row(id){
   if (myLibrary[id].readYet ==='Read'){
-      myLibrary[id].readYet ='Not Read'
-    }else{
-      myLibrary[id].readYet ='Read'
-    }
+    myLibrary[id].readYet ='Not Read'
+  }else{
+    myLibrary[id].readYet ='Read'
+  }
   update_table();
 }
 
 function locallystorage(){
   localStorage.setItem("library", JSON.stringify(myLibrary))
 }
-
