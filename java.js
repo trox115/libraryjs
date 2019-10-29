@@ -1,41 +1,59 @@
 // Book class
 class Book {
-    constructor(title, author, pageCount, readYet) {
-        this.title = title
-        this.author = author
-        this.pageCount = pageCount
-        this.readYet = readYet
-    }
+  constructor(title, author, pageCount, readYet) {
+      this.title = title
+      this.author = author
+      this.pageCount = pageCount
+      this.readYet = readYet
+  }
+}
+
+let myLibrary;
+
+// If local storage data
+if (localStorage.getItem('library')){
+  myLibrary = JSON.parse(localStorage.getItem('library'));
+}else{
+  // Core library data object
+  myLibrary = [
+  new Book('The Hobbit', "J.R.R. Tolkien", 264, "Read"),
+  new Book('The Fellowship of the Ring', "J.R.R. Tolkien", 264, "Not Read" ),
+  new Book('Two Towers', "J.R.R. Tolkien", 264, "Not Read" )
+];
 
 }
 
-// Core library data object
-let myLibrary = [
-    { title: 'The Hobbit', author: "J.R.R. Tolkien", pageCount: 264, readYet: "Read" },
-    { title: 'The Fellowship of the Ring', author: "J.R.R. Tolkien", pageCount: 264, readYet: "Not Read" },
 
-];
-function delete_table(){
-  $("#booklist tr td").remove();
+function update_table(){
+  document.querySelector("#booklist").remove();
   render(myLibrary);
 }
 
 function render (myLibrary){
-  let table = document.getElementById("booklist")
+  let tb = document.createElement('tbody');
+  tb.id = "booklist"
+  let table = document.querySelector('table');
+  table.append(tb);
+  
 
-  for (let i = 0; i<myLibrary.length;i++){
-    let row = table.insertRow(1);
+  for (let i = myLibrary.length-1 ; i >= 0; i-- ){
+    let row = tb.insertRow(0);
     let cell1 = row.insertCell(0);
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
     let cell4 = row.insertCell(3);
     let cell5 = row.insertCell(4);
-    cell1.innerHTML = myLibrary[i].title;
-    cell2.innerHTML = myLibrary[i].author;
-    cell3.innerHTML = myLibrary[i].pageCount;
-    cell4.innerHTML ='<button class="btn btn-success" id="'+i+'" onclick="update_row('+i+')">'+ myLibrary[i].readYet+'</button>';
-    cell5.innerHTML = '<button class="btn btn-danger delete" id="'+i+'" onclick="delete_row('+i+')">Delete</button>';
+    let cell6 = row.insertCell(5);
+    cell1.innerHTML = i+1;
+    cell2.innerHTML = myLibrary[i].title;
+    cell3.innerHTML = myLibrary[i].author;
+    cell4.innerHTML = myLibrary[i].pageCount;
+    cell5.innerHTML ='<button class="btn btn-success read-btn">'+ myLibrary[i].readYet+'</button>';
+    cell6.innerHTML = '<button class="btn btn-danger delete-btn">Delete</button>';
   }
+
+  addlisteners();
+  locallystorage();
 }
 
 render(myLibrary);
@@ -45,13 +63,13 @@ document.getElementById("addBook").addEventListener("click", function(){
 });
 
 document.getElementById("insertbook").addEventListener("click", function(){
-  title = document.getElementById('title').value
-  author = document.getElementById('author').value
-  pages = parseInt(document.getElementById('pages').value)
-  read = document.getElementById('read').value
+  let title = document.getElementById('title').value
+  let author = document.getElementById('author').value
+  let pages = parseInt(document.getElementById('pages').value)
+  let read = document.getElementById('read').value
   let book = new Book(title, author, pages, read);
   myLibrary.push(book);
-  delete_table(myLibrary);
+  update_table(myLibrary);
   document.forms.namedItem("bookform").style.display = "none";
 
 });
@@ -60,21 +78,26 @@ document.getElementById("closeform").addEventListener("click", function(){
   document.forms.namedItem("bookform").style.display = "none";
 });
 
-// function update (array){
-//   $("#booklist").append(
-//       "<tr>" +
-//         "<td>"+array.title+"</td>" +
-//         "<td>"+array.author+"</td>" +
-//         "<td>"+array.pageCount+"</td>" +
-//         "<td>"+array.readYet+"</td>" +
-//       "</tr>"
-//   );
-//
-//   }
+function addlisteners(){
+  document.querySelectorAll('.read-btn').forEach((element)=>{
+    element.addEventListener("click", (event)=>{
+      let read_toggle = parseInt(event.srcElement.parentElement.parentElement.firstElementChild.innerHTML);
+      update_row(read_toggle-1);
+    });
+  });
+  
+  document.querySelectorAll('.delete-btn').forEach((element)=>{
+    element.addEventListener("click", (event)=>{
+      let read_toggle = parseInt(event.srcElement.parentElement.parentElement.firstElementChild.innerHTML);
+      delete_row(read_toggle-1);
+    });
+  });
+}
+
 
 function delete_row(id){
   myLibrary.splice(id,1);
-  delete_table();
+  update_table();
 }
 
 function update_row(id){
@@ -83,5 +106,10 @@ function update_row(id){
     }else{
       myLibrary[id].readYet ='Read'
     }
-  delete_table();
+  update_table();
 }
+
+function locallystorage(){
+  localStorage.setItem("library", JSON.stringify(myLibrary))
+}
+
