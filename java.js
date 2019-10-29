@@ -27,14 +27,14 @@ function updateTable() {
   render(myLibrary);
 }
 
-function render (myLibrary) {
-  let tb = document.createElement('tbody');
-  tb.id = 'booklist'
+function render(myLibrary) {
+  const tb = document.createElement('tbody');
+  tb.id = 'booklist';
   const table = document.querySelector('table');
   table.append(tb);
 
 
-  for (let i = myLibrary.length-1; i >= 0; i--) {
+  for (let i = myLibrary.length - 1; i >= 0; i--) {
     const row = tb.insertRow(0);
     const cell1 = row.insertCell(0);
     const cell2 = row.insertCell(1);
@@ -46,7 +46,7 @@ function render (myLibrary) {
     cell2.innerHTML = myLibrary[i].title;
     cell3.innerHTML = myLibrary[i].author;
     cell4.innerHTML = myLibrary[i].pageCount;
-    cell5.innerHTML ='<button class="btn btn-success read-btn">'+ myLibrary[i].readYet+'</button>';
+    cell5.innerHTML = '<button class="btn btn-success read-btn">'+ myLibrary[i].readYet + '</button>';
     cell6.innerHTML = '<button class="btn btn-danger delete-btn">Delete</button>';
   }
 
@@ -93,12 +93,12 @@ function addlisteners() {
 }
 
 
-function deleteRow(id){
+function deleteRow(id) {
   myLibrary.splice(id,1);
   updateTable();
 }
 
-function updateRow(id){
+function updateRow(id) {
   if (myLibrary[id].readYet ==='Read') {
     myLibrary[id].readYet ='Not Read'
   }else{
@@ -107,6 +107,6 @@ function updateRow(id){
   updateTable();
 }
 
-function locallystorage(){
-  localStorage.setItem('library', JSON.stringify(myLibrary))
+function locallystorage() {
+  localStorage.setItem('library', JSON.stringify(myLibrary));
 }
