@@ -99,10 +99,10 @@ function deleteRow(id) {
 }
 
 function updateRow(id) {
-  if (myLibrary[id].readYet ==='Read') {
-    myLibrary[id].readYet ='Not Read'
-  }else{
-    myLibrary[id].readYet ='Read'
+  if (myLibrary[id].readYet === 'Read') {
+    myLibrary[id].readYet = 'Not Read';
+  } else {
+    myLibrary[id].readYet = 'Read';
   }
   updateTable();
 }
