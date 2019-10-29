@@ -23,22 +23,19 @@ function delete_table(){
 function render (myLibrary){
   let table = document.getElementById("booklist")
 
-  for (var i =0; i<myLibrary.length;i++){
-    var row = table.insertRow(1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
+  for (let i = 0; i<myLibrary.length;i++){
+    let row = table.insertRow(1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
+    let cell5 = row.insertCell(4);
     cell1.innerHTML = myLibrary[i].title;
     cell2.innerHTML = myLibrary[i].author;
     cell3.innerHTML = myLibrary[i].pageCount;
     cell4.innerHTML ='<button class="btn btn-success" id="'+i+'" onclick="update_row('+i+')">'+ myLibrary[i].readYet+'</button>';
     cell5.innerHTML = '<button class="btn btn-danger delete" id="'+i+'" onclick="delete_row('+i+')">Delete</button>';
-
   }
-
-
 }
 
 render(myLibrary);
