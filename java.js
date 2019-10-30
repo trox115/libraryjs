@@ -46,7 +46,7 @@ function addlisteners() {
       const readToggle = parseInt(
         event.srcElement.parentElement.parentElement.firstElementChild
           .innerHTML,
-        10,
+        10
       );
       updateRow(readToggle - 1);
     });
@@ -57,7 +57,7 @@ function addlisteners() {
       const readToggle = parseInt(
         event.srcElement.parentElement.parentElement.firstElementChild
           .innerHTML,
-        10,
+        10
       );
       deleteRow(readToggle - 1);
     });
