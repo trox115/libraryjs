@@ -17,7 +17,7 @@ if (localStorage.getItem('library')) {
   myLibrary = [
     new Book('The Hobbit', 'J.R.R. Tolkien', 264, 'Read'),
     new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 264, 'Not Read'),
-    new Book('Two Towers', 'J.R.R. Tolkien', 264, 'Not Read')
+    new Book('Two Towers', 'J.R.R. Tolkien', 264, 'Not Read'),
   ];
 }
 
@@ -41,23 +41,23 @@ function updateRow(id) {
 }
 
 function addlisteners() {
-  document.querySelectorAll('.read-btn').forEach(element => {
-    element.addEventListener('click', event => {
+  document.querySelectorAll('.read-btn').forEach((element) => {
+    element.addEventListener('click', (event) => {
       const readToggle = parseInt(
         event.srcElement.parentElement.parentElement.firstElementChild
           .innerHTML,
-        10
+        10,
       );
       updateRow(readToggle - 1);
     });
   });
 
-  document.querySelectorAll('.delete-btn').forEach(element => {
-    element.addEventListener('click', event => {
+  document.querySelectorAll('.delete-btn').forEach((element) => {
+    element.addEventListener('click', (event) => {
       const readToggle = parseInt(
         event.srcElement.parentElement.parentElement.firstElementChild
           .innerHTML,
-        10
+        10,
       );
       deleteRow(readToggle - 1);
     });
