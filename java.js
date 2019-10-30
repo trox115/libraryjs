@@ -17,7 +17,7 @@ if (localStorage.getItem('library')) {
   myLibrary = [
     new Book('The Hobbit', 'J.R.R. Tolkien', 264, 'Read'),
     new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 264, 'Not Read'),
-    new Book('Two Towers', 'J.R.R. Tolkien', 264, 'Not Read'),
+    new Book('Two Towers', 'J.R.R. Tolkien', 264, 'Not Read')
   ];
 }
 
