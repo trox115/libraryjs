@@ -45,8 +45,7 @@ function addlisteners() {
     element.addEventListener('click', (event) => {
       const readToggle = parseInt(
         event.srcElement.parentElement.parentElement.firstElementChild
-          .innerHTML,
-        10
+          .innerHTML, 10
       );
       updateRow(readToggle - 1);
     });
@@ -56,8 +55,7 @@ function addlisteners() {
     element.addEventListener('click', (event) => {
       const readToggle = parseInt(
         event.srcElement.parentElement.parentElement.firstElementChild
-          .innerHTML,
-        10
+          .innerHTML, 10
       );
       deleteRow(readToggle - 1);
     });
@@ -89,8 +87,7 @@ function render(myLibraryArray) {
     cell3.innerHTML = myLibraryArray[i].author;
     cell4.innerHTML = myLibraryArray[i].pageCount;
     cell5.innerHTML = `<button class="btn btn-success read-btn">${myLibraryArray[i].readYet}</button>`;
-    cell6.innerHTML =
-      '<button class="btn btn-danger delete-btn">Delete</button>';
+    cell6.innerHTML = '<button class="btn btn-danger delete-btn">Delete</button>';
   }
 
   addlisteners();
