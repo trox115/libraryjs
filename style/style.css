@@ -25,6 +25,7 @@ form{
   align-items: center;
  border: 1px solid #888;
  width: 50%; /* Could be more or less, depending on screen size */
+  padding: 20px;
 }
 
 .form-group > input {

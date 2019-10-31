@@ -15,16 +15,18 @@
       <div class="row">
       <div class="col-md-12">
         <h1> Library in JavaScript </h1>
-        <table class="table" id="booklist">
+        <table class="table">
         <thead>
           <tr>
+            <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Author</th>
             <th scope="col">Pages</th>
             <th scope="col">Read</th>
+            <th scope="col">Remove</th>
           </tr>
         </thead>
-
+        
     </table>
     <button class="btn btn-primary" id="addBook">Add to Library </button>
       </div>
@@ -40,14 +42,21 @@
 
 
     <label for="pages">Pages</label>
-    <input type="number" class="form-control" id="author" placeholder="123">
+    <input type="number" class="form-control" id="pages" placeholder="123">
 
 
     <label for="Read">Read</label>
-    <input type="text" class="form-control" id="read" placeholder="Yes/No">
+    <select class="form-control" id="read">
+     <option>Read</option>
+     <option>Not Read</option>
+   </select>
 
-  <button class="btn btn-primary" id="insertbook">Submit</button>
+    <button class="btn btn-danger" id="closeform" type="button"> Close </button>
+    <button class="btn btn-primary" id="insertbook" type="button">Add to Library</button>
+</div>
+
 </form>
+
       </div>
       </div>
   </body>
