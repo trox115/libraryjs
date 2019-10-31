@@ -107,17 +107,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('insertbook').addEventListener('click', () => {
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('author').value;
-    const pages = parseInt(document.getElementById('pages').value, 10);
-    const read = document.getElementById('read').value;
-    const book = new Book(title, author, pages, read);
-    myLibrary.push(book);
-    updateTable(myLibrary);
-    document.forms.namedItem('bookform').style.display = 'none';
+    addToBookLibrary();
   });
 
   document.getElementById('closeform').addEventListener('click', () => {
     document.forms.namedItem('bookform').style.display = 'none';
   });
 });
+
+function addToBookLibrary() {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = parseInt(document.getElementById('pages').value, 10);
+  const read = document.getElementById('read').value;
+  const book = new Book(title, author, pages, read);
+  myLibrary.push(book);
+  updateTable(myLibrary);
+  document.forms.namedItem('bookform').style.display = 'none';
+}
