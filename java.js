@@ -78,9 +78,8 @@ function locallystorage() {
 }
 
 function render(myLibraryArray) {
-  const element = document.querySelector('#booklist')
-  if (typeof (element) !== 'undefined' && element != null)
-  {
+  const element = document.querySelector('#booklist');
+  if (typeof (element) !== 'undefined' && element != null) {
     document.querySelector('#booklist').remove();
   }
 
