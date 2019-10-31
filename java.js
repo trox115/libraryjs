@@ -40,6 +40,17 @@ function updateRow(id) {
   updateTable();
 }
 
+function addToBookLibrary() {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = parseInt(document.getElementById('pages').value, 10);
+  const read = document.getElementById('read').value;
+  const book = new Book(title, author, pages, read);
+  myLibrary.push(book);
+  updateTable(myLibrary);
+  document.forms.namedItem('bookform').style.display = 'none';
+}
+
 function addlisteners() {
   document.querySelectorAll('.read-btn').forEach((element) => {
     element.addEventListener('click', (event) => {
@@ -67,11 +78,11 @@ function locallystorage() {
 }
 
 function render(myLibraryArray) {
-  element = document.querySelector('#booklist')
-  if (typeof(element) != 'undefined' && element != null)
-{
-  document.querySelector('#booklist').remove();
-}
+  const element = document.querySelector('#booklist')
+  if (typeof (element) !== 'undefined' && element != null)
+  {
+    document.querySelector('#booklist').remove();
+  }
 
   const tb = document.createElement('tbody');
   tb.id = 'booklist';
@@ -114,14 +125,3 @@ document.addEventListener('DOMContentLoaded', () => {
     document.forms.namedItem('bookform').style.display = 'none';
   });
 });
-
-function addToBookLibrary() {
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const pages = parseInt(document.getElementById('pages').value, 10);
-  const read = document.getElementById('read').value;
-  const book = new Book(title, author, pages, read);
-  myLibrary.push(book);
-  updateTable(myLibrary);
-  document.forms.namedItem('bookform').style.display = 'none';
-}
